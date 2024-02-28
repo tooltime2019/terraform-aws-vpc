@@ -244,6 +244,12 @@ variable "public_subnet_tags_per_az" {
   default     = {}
 }
 
+variable "public_subnet_tags_per_subnet" {
+  description = "Additional tags for the public subnets, if specified then must have a length equal to the number of public subnets"
+  type        = list(map(string))
+  default     = []
+}
+
 variable "public_route_table_tags" {
   description = "Additional tags for the public route tables"
   type        = map(string)

@@ -119,7 +119,8 @@ resource "aws_subnet" "public" {
     },
     var.tags,
     var.public_subnet_tags,
-    lookup(var.public_subnet_tags_per_az, element(var.azs, count.index), {})
+    lookup(var.public_subnet_tags_per_az, element(var.azs, count.index), {}),
+    length(var.public_subnet_tags_per_subnet) > 0 ? element(var.public_subnet_tags_per_subnet, count.index) : {},
   )
 }
 
